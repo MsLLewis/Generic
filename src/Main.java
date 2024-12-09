@@ -1,13 +1,12 @@
-import generics.BoundedType;
-import generics.GenericClass;
-import generics.GenericClassTwoParams;
-import generics.WildcardClass;
+import generics.*;
 import interfaces.GenericInterface;
 import interfaces.impl.GenericInterfaceImpl;
 import model.Customer;
 import model.Order;
 import model.VIPCustomer;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -17,15 +16,52 @@ public class Main {
 
 
         /**
+         * . Lower Bound (? super Type)
+         * Definition: Specifies that a wildcard can be any type that is a superclass of (or the same as) a specified type.
+         * Keyword: super
+         * Purpose: Useful when you need to write data into a collection but don’t care about the exact type.
+         * Example Use Case: You want to add Integer values to a list, and the list could be of type List<Integer> or List<Number>.
+         */
+               List<Number> numbers = new ArrayList<>();
+               List<Object> objects = new ArrayList<>();
+               LowerBound lowerBound = new LowerBound();
+               lowerBound.addNumbers(numbers);
+               lowerBound.addNumbers(objects);
+
+               System.out.println("Numbers List: " + numbers);
+               System.out.println("Objects List: " + objects);
+
+
+
+
+
+        /**
+         * UpperBound
+         *  Upper Bound (? extends Type)
+         * Definition: Specifies that a wildcard can be any type that is a subclass of (or the same as) a specified type.
+         * Keyword: extends
+         * Purpose: Useful when you need to read data but don’t need to modify the collection.
+         * Example Use Case: You have a method that works with a list of numbers (e.g., Integer, Double), and you don’t care about the exact type.
+         */
+//        List<Integer> integerList = Arrays.asList(1,2,3,4,5);
+//        List<Double> doubleList = Arrays.asList(1.1,2.2,3.3,4.4);
+//        List<String> stringList = Arrays.asList("Jane", "John");
+//
+//        UpperBound upperBound = new UpperBound();
+//        upperBound.processList(integerList);
+//        upperBound.processList(doubleList);
+
+
+        /**
          * WildcardClass demo
          *
          */
-        List<String> stringList = List.of("A", "B", "C");
-        List<Integer> integerList = List.of(1, 2, 3);
-
-        WildcardClass wildcardClass = new WildcardClass();
-        wildcardClass.printList(stringList);
-        wildcardClass.printList(integerList);
+//        List<String> stringList = List.of("A", "B", "C");
+//        List<Integer> integerList = List.of(1, 2, 3);
+//
+//        WildcardClass wildcardClass = new WildcardClass();
+//        wildcardClass.printList(stringList);
+//        wildcardClass.printList(integerList);
 
         /**
          * VIPCustomer using the BoundedType class
